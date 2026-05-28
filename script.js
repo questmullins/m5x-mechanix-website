@@ -33,7 +33,6 @@ const modalTriggers = document.querySelectorAll(".modal-trigger");
 const modalBackdrop = document.querySelector(".modal-backdrop");
 const scheduleModal = document.querySelector(".schedule-modal");
 const modalClose = document.querySelector(".modal-close");
-const scheduleForm = document.querySelector(".schedule-form");
 
 function setModalOpen(isOpen) {
   if (!modalBackdrop || !scheduleModal) {
@@ -63,12 +62,3 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-if (scheduleForm) {
-  scheduleForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const subject = encodeURIComponent("M5X Mechanix Service Request");
-    window.location.href = `mailto:quest.mullins@gmail.com?subject=${subject}`;
-    setModalOpen(false);
-  });
-}

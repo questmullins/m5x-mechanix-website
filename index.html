@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -179,21 +179,25 @@
     <div class="modal-header">
       <p class="section-kicker">Schedule Service</p>
       <h2 id="schedule-title">Tell us what you’re driving.</h2>
-      <p>Share a few quick details and we’ll open an email draft with the subject ready to go.</p>
+      <p>Share a few quick details and we will get your service request.</p>
     </div>
 
-    <form class="schedule-form">
+    <form action="https://formspree.io/f/xaqkabzl" method="POST" class="schedule-form service-form">
       <label>
         First Name
-        <input type="text" name="firstName" required>
+        <input type="text" name="first_name" required>
       </label>
       <label>
         Last Name
-        <input type="text" name="lastName" required>
+        <input type="text" name="last_name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" required>
       </label>
       <label>
         Car Make
-        <input type="text" name="make" required>
+        <input type="text" name="car_make" required>
       </label>
       <label>
         Model
@@ -205,12 +209,14 @@
       </label>
       <label>
         Concern
-        <textarea name="concern" rows="4" required></textarea>
+        <textarea name="concern" rows="8" required></textarea>
       </label>
-      <button type="submit" class="primary-button">Open Email Draft →</button>
+      <input type="hidden" name="_subject" value="New M5X Mechanix Service Request">
+      <button type="submit" class="primary-button">Send Service Request →</button>
     </form>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
