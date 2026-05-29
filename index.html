@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -63,8 +63,9 @@ a{color:inherit;text-decoration:none}
 }
 
 .nav{display:flex;align-items:center;gap:38px;font-size:14px;font-weight:800;text-transform:uppercase}
-.nav a{opacity:.9}
-.header-actions{display:flex;align-items:center;gap:12px}
+.nav a{display:inline-flex;align-items:center;gap:8px;opacity:.92;color:white}
+.nav a:hover,.nav a:focus-visible{opacity:1;color:white}
+.nav svg{width:16px;height:16px;fill:currentColor}
 
 .btn{
   display:inline-flex;
@@ -88,22 +89,23 @@ a{color:inherit;text-decoration:none}
 .icon{font-size:20px;line-height:1}
 
 .hero{
-  min-height:675px;
+  min-height:610px;
   position:relative;
   display:grid;
-  grid-template-columns:46% 54%;
-  background:
-    linear-gradient(100deg,rgba(242,234,223,.98) 0%,rgba(242,234,223,.94) 38%,rgba(242,234,223,.18) 60%,rgba(242,234,223,0) 100%),
-    url("Photos/generated/bmw_f_hero_mirror.jpg");
+  grid-template-columns:minmax(320px,48%) 1fr;
+  background:url("Photos/generated/bmw_a_hero.jpg");
   background-size:cover;
-  background-position:center right;
+  background-position:center calc(58% + var(--hero-shift,0%));
 }
 
 .hero-content{
   position:relative;
   z-index:2;
-  padding:76px 36px 62px;
+  padding:70px 8vw;
   max-width:560px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
 }
 
 .kicker{
@@ -127,64 +129,70 @@ a{color:inherit;text-decoration:none}
 }
 
 .hero h1{
-  font-size:clamp(58px,7vw,88px);
-  line-height:.96;
+  font-size:clamp(56px,7vw,96px);
+  line-height:.92;
   letter-spacing:-3px;
   text-transform:uppercase;
   font-weight:950;
-  margin-bottom:6px;
+  margin-top:48px;
+  margin-bottom:28px;
 }
 
 .script{
-  display:block;
-  margin-top:8px;
+  display:inline;
+  margin-top:0;
   color:var(--red);
-  font-size:43px;
-  line-height:1.05;
+  font-size:inherit;
+  line-height:inherit;
   font-weight:900;
-  font-style:italic;
-  letter-spacing:1px;
-  transform:rotate(-2deg);
+  font-style:normal;
+  letter-spacing:inherit;
+  transform:none;
   text-transform:uppercase;
 }
 
 .script::after{
-  content:"";
-  display:block;
-  width:345px;
-  max-width:92%;
-  height:6px;
-  margin-top:2px;
-  background:var(--red);
-  border-radius:999px;
-  transform:skewX(-25deg);
+  content:none;
 }
 
-.hero-copy{
-  margin-top:38px;
-  max-width:400px;
-  color:#111;
-  font-size:18px;
-  line-height:1.55;
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:0;order:2}
+.hero h1{order:3}
+.hero-actions .btn{
+  width:auto;
+  min-width:188px;
+  height:54px;
+  padding-inline:25px;
 }
-
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:30px}
 
 .socials{
   display:flex;
   align-items:center;
-  gap:22px;
+  gap:12px;
   margin-top:28px;
   font-size:13px;
   text-transform:uppercase;
   font-weight:800;
 }
 
-.socials a{display:flex;align-items:center;gap:10px}
-.social-divider{width:1px;height:20px;background:rgba(0,0,0,.26)}
+.socials a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:220px;
+  min-height:42px;
+  height:54px;
+  padding:0 15px;
+  border:1px solid rgba(8,15,18,.26);
+  border-radius:3px;
+  background:rgba(255,250,242,.64);
+  color:#10171c;
+}
+.socials svg{width:18px;height:18px;fill:currentColor}
+.social-divider{display:none}
 
 .services{
-  padding:30px 36px 56px;
+  padding:70px 8vw 74px;
   background:
     radial-gradient(circle at center,rgba(255,255,255,.7),rgba(255,255,255,0) 60%),
     var(--cream-2);
@@ -211,8 +219,8 @@ a{color:inherit;text-decoration:none}
   border-right:1px solid var(--line);
 }
 .service-card:last-child{border-right:0}
-.service-icon{height:66px;display:flex;align-items:center;justify-content:center;color:var(--red);font-size:48px;margin-bottom:10px}
-.service-card h3{font-size:18px;line-height:1.05;text-transform:uppercase;margin-bottom:16px}
+.service-icon{display:none}
+.service-card h3{font-size:18px;line-height:1.05;text-transform:uppercase;margin-bottom:16px;color:var(--red)}
 .service-card p{color:#1a1d1f;font-size:15px;line-height:1.45}
 
 .about{
@@ -225,10 +233,10 @@ a{color:inherit;text-decoration:none}
 
 .about-image{
   background:
-    linear-gradient(90deg,rgba(7,16,20,.05),rgba(7,16,20,.92)),
-    url("Photos/generated/technician_hands_hero.jpg");
+    linear-gradient(90deg,rgba(7,16,20,.01) 0%,rgba(7,16,20,.18) 23%,rgba(7,16,20,0) 25%),
+    url("Photos/generated/bmw_h_hero.jpg");
   background-size:cover;
-  background-position:center;
+  background-position:center calc(50% + var(--about-shift,0%));
   min-height:380px;
 }
 
@@ -467,9 +475,8 @@ a{color:inherit;text-decoration:none}
 @media(max-width:1050px){
   .header{height:auto;padding:28px;flex-wrap:wrap}
   .nav{order:3;width:100%;justify-content:center}
-  .header-actions{margin-left:auto}
-  .hero{grid-template-columns:1fr;min-height:620px;background-position:center right}
-  .hero-content{padding:70px 36px}
+  .hero{grid-template-columns:1fr;min-height:560px;background-position:center calc(58% + var(--hero-shift,0%))}
+  .hero-content{padding:70px 8vw}
   .service-grid{grid-template-columns:repeat(5,1fr)}
   .service-card{padding:12px 16px 0}
   .service-card h3{font-size:16px}
@@ -480,28 +487,28 @@ a{color:inherit;text-decoration:none}
 }
 
 @media(max-width:760px){
-  .header{gap:22px}
+  .header{align-items:flex-start;gap:22px;padding:26px 28px}
   .logo{font-size:34px}
   .nav{gap:18px;justify-content:flex-start;overflow-x:auto;padding-bottom:4px}
-  .header-actions{display:none}
   .hero{
-    background:
-      linear-gradient(180deg,rgba(242,234,223,.98) 0%,rgba(242,234,223,.95) 44%,rgba(242,234,223,.15) 100%),
-      url("Photos/generated/bmw_f_small_mirror.jpg");
+    min-height:620px;
+    background-image:url("Photos/generated/bmw_a_small.jpg");
     background-size:cover;
-    background-position:center bottom;
+    background-position:center calc(76% + var(--hero-shift,0%));
   }
-  .hero h1{font-size:54px;letter-spacing:-2px}
-  .script{font-size:31px}
-  .hero-copy{font-size:16px;margin-top:28px}
+  .hero-content{padding:64px 28px}
+  .kicker{align-items:flex-start;letter-spacing:.08em;margin-bottom:22px}
+  .slashes{display:none}
+  .hero h1{font-size:54px;letter-spacing:-2px;margin-bottom:0}
+  .script{font-size:inherit}
   .btn{width:100%}
-  .socials{flex-wrap:wrap}
-  .services{padding:46px 24px}
+  .hero-actions{display:grid;gap:14px;width:100%}
+  .services{padding:58px 8vw}
   .service-grid{grid-template-columns:1fr;gap:0}
   .service-card{border-right:0;border-bottom:1px solid var(--line);min-height:auto;padding:22px 8px}
   .service-card:last-child{border-bottom:0}
   .about{grid-template-columns:1fr}
-  .about-image{min-height:250px;background-image:linear-gradient(90deg,rgba(7,16,20,.05),rgba(7,16,20,.92)),url("Photos/generated/technician_hands_small.jpg")}
+  .about-image{min-height:250px;background-image:linear-gradient(90deg,rgba(7,16,20,.01) 0%,rgba(7,16,20,.18) 23%,rgba(7,16,20,0) 25%),url("Photos/generated/bmw_h_small.jpg")}
   .about-copy{padding:46px 28px}
   .about-copy h2{font-size:36px}
   .cta-strip{grid-template-columns:1fr;text-align:left;padding:34px 28px}
@@ -520,23 +527,24 @@ a{color:inherit;text-decoration:none}
 <body>
 <div class="page">
 
-  <header class="header">
+    <header class="header">
     <a class="logo" href="#">
       M5<span class="x">X</span>
       <small>MECHANIX</small>
     </a>
 
     <nav class="nav">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#contact">Contact</a>
+      <a href="mailto:quest.mullins@gmail.com">Email</a>
+      <a href="about-kole.html">About</a>
+      <a href="https://www.instagram.com/m5x_mechanix/" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 6.9A5.1 5.1 0 1 1 6.9 12 5.1 5.1 0 0 1 12 6.9Zm0 1.8A3.3 3.3 0 1 0 15.3 12 3.3 3.3 0 0 0 12 8.7Z"/></svg>
+        Instagram
+      </a>
+      <a href="https://m.youtube.com/channel/UCm0v-xv1uiD0EIrK2ZOx06w" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.4 7.1a2.96 2.96 0 0 0-2.08-2.09C17.48 4.5 12 4.5 12 4.5s-5.48 0-7.32.51A2.96 2.96 0 0 0 2.6 7.1 30.7 30.7 0 0 0 2.1 12a30.7 30.7 0 0 0 .5 4.9 2.96 2.96 0 0 0 2.08 2.09c1.84.51 7.32.51 7.32.51s5.48 0 7.32-.51a2.96 2.96 0 0 0 2.08-2.09 30.7 30.7 0 0 0 .5-4.9 30.7 30.7 0 0 0-.5-4.9ZM10.2 15.34V8.66L15.96 12Z"/></svg>
+        YouTube
+      </a>
     </nav>
-
-    <div class="header-actions">
-      <a class="btn btn-dark" href="#schedule">Schedule Service <span class="icon">▣</span></a>
-      <a class="btn btn-red" href="mailto:quest.mullins@gmail.com">Email Us <span class="icon">➤</span></a>
-    </div>
   </header>
 
   <main>
@@ -547,27 +555,17 @@ a{color:inherit;text-decoration:none}
           BMW Specialist | Fullerton, CA
         </div>
 
+        <div class="hero-actions">
+          <a class="btn btn-red" href="mailto:quest.mullins@gmail.com">Email Us <span class="icon">→</span></a>
+          <a class="btn btn-dark" href="#schedule">Schedule Service <span class="icon">→</span></a>
+        </div>
+
         <h1>
           Better care.<br>
-          Real results.
-          <span class="script">Any car. Always.</span>
+          Real results.<br>
+          <span class="script">Any car.<br>Always.</span>
         </h1>
 
-        <p class="hero-copy">
-          Specializing in BMW repair, diagnostics, and performance, with the
-          knowledge to work on any car that deserves it.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-red" href="mailto:quest.mullins@gmail.com">Email Us <span class="icon">✉</span></a>
-          <a class="btn btn-dark" href="#schedule">Schedule Service <span class="icon">▣</span></a>
-        </div>
-
-        <div class="socials">
-          <a href="https://www.instagram.com/m5x_mechanix/" target="_blank" rel="noreferrer">◎ Instagram</a>
-          <span class="social-divider"></span>
-          <a href="https://m.youtube.com/channel/UCm0v-xv1uiD0EIrK2ZOx06w" target="_blank" rel="noreferrer">▶ YouTube</a>
-        </div>
       </div>
     </section>
 
@@ -580,31 +578,31 @@ a{color:inherit;text-decoration:none}
 
       <div class="service-grid">
         <article class="service-card">
-          <div class="service-icon">⌕</div>
-          <h3>Repair & Maintenance</h3>
+          <div class="service-icon"></div>
+          <h3>Repair &amp; Maintenance</h3>
           <p>From oil leaks to cooling systems, we handle the details that keep your car performing.</p>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">⌁</div>
+          <div class="service-icon"></div>
           <h3>Diagnostics</h3>
           <p>Advanced diagnostics to find the root cause, not just the symptoms.</p>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">◎</div>
+          <div class="service-icon"></div>
           <h3>Performance</h3>
           <p>Upgrades, tuning, and performance parts installed the right way.</p>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">☑</div>
+          <div class="service-icon"></div>
           <h3>Pre-Purchase Inspections</h3>
           <p>Know what you're buying with a thorough, honest inspection.</p>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">▱</div>
+          <div class="service-icon"></div>
           <h3>Any Car Welcome</h3>
           <p>BMW is our specialty, but we service and repair a wide range of vehicles.</p>
         </article>
@@ -631,13 +629,13 @@ a{color:inherit;text-decoration:none}
           attention we'd give our own.
         </p>
 
-        <a class="btn btn-dark" href="mailto:quest.mullins@gmail.com">Learn More <span class="icon">›</span></a>
+        <a class="btn btn-dark" href="about-kole.html">Learn More <span class="icon">→</span></a>
       </div>
     </section>
 
     <section id="schedule" class="cta-strip">
       <div class="schedule-copy">
-        <div class="cta-icon">▣</div>
+        <div class="cta-icon">M5X</div>
 
         <div>
           <h3>Ready to get started?</h3>
@@ -706,19 +704,19 @@ a{color:inherit;text-decoration:none}
 
       <div class="footer-col">
         <h4>Contact</h4>
-        <a class="footer-link" href="mailto:quest.mullins@gmail.com">✉ quest.mullins@gmail.com</a>
-        <div class="footer-link">⌖ Fullerton, CA</div>
-        <div class="footer-link">▣ By Appointment</div>
+        <a class="footer-link" href="mailto:quest.mullins@gmail.com">Email quest.mullins@gmail.com</a>
+        <div class="footer-link">Location Fullerton, CA</div>
+        <div class="footer-link">Appointment By Appointment</div>
       </div>
 
       <div class="footer-col">
         <h4>Connect</h4>
-        <a class="footer-link" href="https://www.instagram.com/m5x_mechanix/" target="_blank" rel="noreferrer">◎ @m5x_mechanix</a>
-        <a class="footer-link" href="https://m.youtube.com/channel/UCm0v-xv1uiD0EIrK2ZOx06w" target="_blank" rel="noreferrer">▶ M5X Mechanix</a>
+        <a class="footer-link" href="https://www.instagram.com/m5x_mechanix/" target="_blank" rel="noreferrer">Instagram @m5x_mechanix</a>
+        <a class="footer-link" href="https://m.youtube.com/channel/UCm0v-xv1uiD0EIrK2ZOx06w" target="_blank" rel="noreferrer">YouTube M5X Mechanix</a>
       </div>
 
       <div class="map-pin">
-        <span class="pin">⌖</span>
+        <span class="pin">Location</span>
         <span>Fullerton<br>California</span>
       </div>
     </div>
@@ -729,5 +727,22 @@ a{color:inherit;text-decoration:none}
   </footer>
 </div>
 
+<script>
+(() => {
+  const root = document.documentElement;
+  const updateImageShift = () => {
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = window.scrollY / maxScroll;
+    const shift = ((progress - 0.5) * 20).toFixed(2) + "%";
+    root.style.setProperty("--hero-shift", shift);
+    root.style.setProperty("--about-shift", shift);
+  };
+
+  updateImageShift();
+  window.addEventListener("scroll", updateImageShift, { passive: true });
+  window.addEventListener("resize", updateImageShift);
+})();
+</script>
 </body>
 </html>
+

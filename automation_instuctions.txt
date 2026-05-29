@@ -1,0 +1,17 @@
+instructions on bootup
+
+when in mobile mode, move image1 slightly lower so you can still see the car
+
+make instagram and youtube into real buttons using their logos
+
+Find change the pre purchase inspection emoji since it renders on the phone differently
+
+reduce the white fade on image1 to 20% of its current value and 50% of its current length, do the same to image 2
+
+Make an about me page attached to the learn more button that is a one pager about Kole and his epxertise and skill, this can be made up for now and replaced with something else later.
+
+change the buttons on the top to Email About Instagram Youtube, remove the buttons on the right of that, I just want them to be simple and white
+
+make the images slightly move as you scroll up or down with a total of 10% movement across scrolling the entire website
+
+
