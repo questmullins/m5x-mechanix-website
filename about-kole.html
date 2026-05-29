@@ -29,14 +29,14 @@ body{font-family:"Outfit",Arial,Helvetica,sans-serif;background:var(--cream);col
 a{color:inherit;text-decoration:none}
 
 .header{
-  min-height:110px;
-  padding:26px 36px;
+  height:118px;
+  padding:0 36px;
   background:linear-gradient(180deg,#0b151a,#071014);
   color:white;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:28px;
+  gap:34px;
 }
 
 .logo{
@@ -57,9 +57,10 @@ a{color:inherit;text-decoration:none}
   color:white;
 }
 
-.nav{display:flex;align-items:center;gap:32px;font-size:14px;font-weight:800;text-transform:uppercase}
-.nav a{color:white;opacity:.9}
-.nav a:hover,.nav a:focus-visible{opacity:1}
+.nav{display:flex;align-items:center;gap:38px;font-size:14px;font-weight:800;text-transform:uppercase}
+.nav a{display:inline-flex;align-items:center;gap:8px;opacity:.92;color:white}
+.nav a:hover,.nav a:focus-visible{opacity:1;color:white}
+.nav svg{width:16px;height:16px;fill:currentColor}
 
 .hero{
   min-height:610px;
@@ -233,9 +234,9 @@ h1{order:3}
 }
 
 @media(max-width:860px){
-  .header{align-items:flex-start;flex-direction:column;gap:22px;padding:26px 28px}
+  .header{height:auto;align-items:flex-start;flex-direction:column;gap:22px;padding:26px 28px}
   .logo{font-size:34px}
-  .nav{gap:18px;flex-wrap:wrap;font-weight:800}
+  .nav{gap:18px;justify-content:flex-start;overflow-x:auto;padding-bottom:4px;font-weight:800}
   .hero{
     grid-template-columns:1fr;
     min-height:560px;
@@ -265,10 +266,16 @@ h1{order:3}
     </a>
 
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#schedule">Schedule</a>
       <a href="mailto:quest.mullins@gmail.com">Email</a>
+      <a href="about-kole.html">About</a>
+      <a href="https://www.instagram.com/m5x_mechanix/" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 6.9A5.1 5.1 0 1 1 6.9 12 5.1 5.1 0 0 1 12 6.9Zm0 1.8A3.3 3.3 0 1 0 15.3 12 3.3 3.3 0 0 0 12 8.7Z"/></svg>
+        Instagram
+      </a>
+      <a href="https://m.youtube.com/channel/UCm0v-xv1uiD0EIrK2ZOx06w" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.4 7.1a2.96 2.96 0 0 0-2.08-2.09C17.48 4.5 12 4.5 12 4.5s-5.48 0-7.32.51A2.96 2.96 0 0 0 2.6 7.1 30.7 30.7 0 0 0 2.1 12a30.7 30.7 0 0 0 .5 4.9 2.96 2.96 0 0 0 2.08 2.09c1.84.51 7.32.51 7.32.51s5.48 0 7.32-.51a2.96 2.96 0 0 0 2.08-2.09 30.7 30.7 0 0 0 .5-4.9 30.7 30.7 0 0 0-.5-4.9ZM10.2 15.34V8.66L15.96 12Z"/></svg>
+        YouTube
+      </a>
     </nav>
   </header>
 
