@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Autoshop Wireframe A</title>
+<style>
+:root{
+  --bg:#f4f1eb;
+  --ink:#171717;
+  --muted:#696969;
+  --line:#cfc8bd;
+  --panel:#ffffff;
+  --dark:#111820;
+  --accent:#c93223;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+
+.header{
+  min-height:112px;
+  padding:0 36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+  background:var(--dark);
+  color:white;
+}
+
+.logo{
+  font-size:34px;
+  font-weight:900;
+  line-height:.85;
+  text-transform:uppercase;
+}
+.logo small{
+  display:block;
+  margin-top:9px;
+  font-size:11px;
+  letter-spacing:6px;
+}
+
+.nav{
+  display:flex;
+  gap:34px;
+  font-size:13px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.hero{
+  min-height:610px;
+  display:grid;
+  grid-template-columns:minmax(320px,48%) 1fr;
+  background:
+    linear-gradient(135deg,rgba(0,0,0,.08) 25%,transparent 25%) 0 0/28px 28px,
+    linear-gradient(225deg,rgba(0,0,0,.08) 25%,transparent 25%) 0 0/28px 28px,
+    #ddd6cc;
+}
+
+.hero-content{
+  padding:70px 8vw;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+.kicker{
+  color:var(--accent);
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+h1{
+  margin-top:48px;
+  max-width:650px;
+  font-size:clamp(52px,7vw,92px);
+  line-height:.92;
+  letter-spacing:-3px;
+  text-transform:uppercase;
+}
+h1 span{color:var(--accent)}
+
+.hero-button-strip{
+  padding:28px 8vw;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  background:var(--bg);
+}
+
+.btn{
+  min-height:54px;
+  padding:0 26px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--line);
+  border-radius:3px;
+  font-size:14px;
+  font-weight:900;
+  text-transform:uppercase;
+  background:var(--panel);
+}
+.btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.btn.dark{background:var(--dark);color:white;border-color:var(--dark)}
+
+.section{
+  padding:70px 8vw;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:36px;
+}
+.section-head h2{
+  font-size:clamp(34px,4vw,54px);
+  line-height:1;
+  text-transform:uppercase;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1px;
+  max-width:1200px;
+  margin:0 auto;
+  border:1px solid var(--line);
+  background:var(--line);
+}
+
+.service-card{
+  min-height:180px;
+  padding:28px;
+  background:var(--panel);
+}
+.service-card h3{
+  color:var(--accent);
+  font-size:17px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.service-card p{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.45;
+}
+
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+.image-block{
+  min-height:380px;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.12) 25%,transparent 25%) 0 0/24px 24px,
+    #c9c1b6;
+}
+.copy-block{
+  min-height:380px;
+  padding:64px 8vw 64px 54px;
+  background:var(--dark);
+  color:white;
+}
+.copy-block h2{
+  font-size:42px;
+  line-height:1;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+.copy-block p{
+  max-width:520px;
+  color:#d7d7d7;
+  font-size:17px;
+  line-height:1.55;
+  margin-bottom:28px;
+}
+
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:42px;
+  align-items:start;
+}
+.form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.form label{
+  display:grid;
+  gap:8px;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.form label.full{grid-column:1 / -1}
+.form input,.form textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--line);
+  background:white;
+  font:inherit;
+}
+.form textarea{min-height:118px}
+.form .btn{grid-column:1 / -1;justify-self:start}
+
+.map-placeholder{
+  min-height:420px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.08) 1px,transparent 1px) 0 0/44px 44px,
+    linear-gradient(rgba(0,0,0,.08) 1px,transparent 1px) 0 0/44px 44px,
+    #e6e1d8;
+  color:var(--muted);
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.footer{
+  padding:34px 36px;
+  background:var(--dark);
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+}
+
+@media(max-width:900px){
+  .header{height:auto;align-items:flex-start;flex-direction:column;padding:26px 28px}
+  .nav{gap:18px;flex-wrap:wrap}
+  .hero{grid-template-columns:1fr;min-height:560px}
+  .hero-content{padding:64px 28px}
+  h1{font-size:54px;letter-spacing:-2px}
+  .hero-button-strip{display:grid;padding:24px 28px 30px}
+  .service-grid{grid-template-columns:1fr}
+  .split,.contact{grid-template-columns:1fr}
+  .copy-block{padding:46px 28px}
+  .form{grid-template-columns:1fr}
+  .form .btn,.btn{width:100%}
+  .footer{flex-direction:column}
+}
+</style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#">SHOP<small>AUTO TEMPLATE</small></a>
+    <nav class="nav">
+      <a href="#">Email</a>
+      <a href="#">About</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="kicker">Specialist Shop | City, State</div>
+        <h1>Hero headline.<br>Value statement.<br><span>Key emphasis.</span></h1>
+      </div>
+    </section>
+
+    <div class="hero-button-strip">
+      <a class="btn primary" href="#">Email Us</a>
+      <a class="btn dark" href="#schedule">Schedule Service</a>
+    </div>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="kicker">What We Do</div>
+        <h2>Service Section Title</h2>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><h3>Service One</h3><p>Short description of the service category.</p></article>
+        <article class="service-card"><h3>Service Two</h3><p>Short description of the service category.</p></article>
+        <article class="service-card"><h3>Service Three</h3><p>Short description of the service category.</p></article>
+        <article class="service-card"><h3>Service Four</h3><p>Short description of the service category.</p></article>
+        <article class="service-card"><h3>Service Five</h3><p>Short description of the service category.</p></article>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="image-block" aria-label="Image placeholder"></div>
+      <div class="copy-block">
+        <div class="kicker">About</div>
+        <h2>About Section Headline</h2>
+        <p>Brief business story, positioning, and trust-building copy. Keep this concise and easy to scan.</p>
+        <a class="btn" href="#">Learn More</a>
+      </div>
+    </section>
+
+    <section id="schedule" class="section contact">
+      <div>
+        <div class="kicker">Get Started</div>
+        <h2>Schedule Form</h2>
+        <p>Use this area for instructions, location context, and expectations.</p>
+      </div>
+      <form class="form" action="#" method="POST">
+        <label>First Name<input type="text" name="first_name"></label>
+        <label>Last Name<input type="text" name="last_name"></label>
+        <label>Email<input type="email" name="email"></label>
+        <label>Vehicle<input type="text" name="vehicle"></label>
+        <label class="full">Concern<textarea name="concern"></textarea></label>
+        <button class="btn primary" type="submit">Send Request</button>
+      </form>
+      <div class="map-placeholder">Map Placeholder</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong>Shop Name</strong>
+    <span>Email | Location | Social Links</span>
+  </footer>
+</body>
+</html>
